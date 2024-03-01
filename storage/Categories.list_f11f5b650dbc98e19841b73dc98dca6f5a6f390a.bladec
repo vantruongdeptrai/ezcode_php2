@@ -1,0 +1,33 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('content'); ?>
+<table border="1">
+ <thead>
+ <tr>
+ <th>Name</th>
+ <th>Description</th>
+ <th>Thumnail</th>
+ <th>Status</th>
+ </tr>
+ </thead>
+ <tbody>
+ <?php $__currentLoopData = $categories; $this->addLoop($__currentLoopData);$this->getFirstLoop();
+ foreach($__currentLoopData as $cs): $loop = $this->incrementLoopIndices();  ?>
+ <tr>
+ <td>
+ <?php echo $categories['name']?>
+ </td>
+ <td>
+ <?php echo $categories['description']?>
+ </td>
+ <td>
+ <?php echo $categories['thumbnail']?>
+ </td>
+ <td>
+ <?php echo $categories['status']?>
+ </td>
+ </tr>
+ $endforeach
+ </tbody>
+</table>
+<?php $this->stopSection(); ?>
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.admin'); } ?>
