@@ -6,31 +6,36 @@ use App\Models\BaseModel;
 class Categories extends BaseModel
 {
     protected $table = "categories";
+
     public function getAllCategories()
     {
-        $sql = "SELECT * FROM " . $this->table;
-        //var_dump($sql);
-        return $this->getData($sql);
+        $sql = "SELECT * FROM $this->table";
+        $this->setQuery($sql);
+        return $this->loadAllRows([]);
     }
-    public function getOneCategories($id)
+    public function getCategorieById($id)
     {
-        $sql = "SELECT * FROM " . $this->table . " WHERE id=" . $id;
-        return $this->getDataByID($sql);
+        $sql = "SELECT * FROM $this->table WHERE id= ?";
+        $this->setQuery($sql);
+        return $this->loadRow([$id]);
     }
-    public function insertCategories($name, $description, $thumbnail, $status)
+    public function insertCategories($id,$name,$description,$thumbnail,$status)
     {
-        $sql = "INSERT INTO " . $this->table . "(name,description,thumbnail,status) VALUES('$name','$description','$thumbnail','$status')";
-        return $this->getData($sql);
+        $sql = "INSERT INTO $this->table VALUES(?,?,?,?,?)";
+        $this->setQuery($sql);
+        return $this->execute([$id,$name,$description,$thumbnail,$status]);
     }
     public function updateCategories($id, $name, $description, $thumbnail, $status)
     {
-        $sql = "UPDATE " . $this->table . " SET name='$name' , description = '$description , thumbnail='$thumbnail', status='$status' WHERE id =" . $id;
-        return $this->getData($sql);
+        $sql = "UPDATE $this->table SET name=? , description = ?, thumbnail=?, status=? WHERE id = ?" ;
+        $this->setQuery($sql);
+        return $this->execute([$name,$description,$thumbnail,$status,$id]);
     }
     public function deleteCategories($id, $status)
     {
-        $sql = "UPDATE " . $this->table . "SET status='$status' WHERE id=" . $id;
-        return $this->getData($sql);
+        $sql = "UPDATE $this->table SET status=? WHERE id=?";
+        $this->setQuery($sql);
+        return $this->execute([$status,$id]);
     }
 }
 

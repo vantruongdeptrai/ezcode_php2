@@ -23,10 +23,9 @@
                         <tr>
                             <td>{{$cate['id']}}</td>
                             <td>{{$cate['name']}}</td>
-                            
-                            <td><img src="{{IMG.$cate['thumbnail']}}" alt="" height='80' width='80'></td>
+                            <td><img src="{{$cate['thumbnail']}}" alt="" height='80' width='80'></td>
                             <td>{{$cate['status']}}</td>
-                            <td style="display : flex ; justify-content:space-evenly;">
+                            <td>
                                 <a href="" class="btn btn-danger btn-circle "><i class="fas fa-trash"></i></a>
                                 <a href="" class="btn btn-danger btn-circle "><i class="fas fa-fw fa-wrench"></i></a>
                             </td>

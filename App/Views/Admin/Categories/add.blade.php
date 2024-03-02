@@ -1,6 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-
 <body class="bg-gradient-primary">
     <div class="container">
         <div class="card o-hidden border-0 shadow-lg my-5">
@@ -13,7 +12,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create new categories</h1>
                             </div>
-                            <form action="" class="user" id="form" method="post" enctype="multipart/form-data">
+                            <form action="{{route('admin/categories/add')}}" class="user" id="form" method="post" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user"
@@ -27,9 +26,11 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
                                     <input type="file" class="form-control form-control-user" placeholder="Thumbnail"
                                         name="thumbnail">
-                                </div>
+                                    </div>
+                                </div>                    
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user" placeholder="Status"
@@ -47,5 +48,14 @@
             </div>
         </div>
     </div>
+    <script>
+        const name = document.querySelector('input[name="name"]').value;
+        const thumbnail = document.querySelector('input[name="thumbnail"]').value;
+        const description = document.querySelector('input[name="description"]').value;
+        const status = document.querySelector('input[name="status"]').value;
+        if(name.trim()==""||thumbnail.trim()==""||description.trim()==""||status.trim()==""){
+            alert('Cannot be blank !');
+        }
+    </script>
 </body>
 @endsection

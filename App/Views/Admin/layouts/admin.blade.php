@@ -59,7 +59,7 @@
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Categories</h6>
                         <a class="collapse-item" href="{{BASE_URL.'admin/categories/list'}}">List Categories</a>
-                        <a class="collapse-item" href="{{BASE_URL.'admin/categories/add'}}">Create Categories</a>
+                        <a class="collapse-item" href="{{BASE_URL.'admin/categories/form-add'}}">Create Categories</a>
                     </div>
                 </div>
             </li>

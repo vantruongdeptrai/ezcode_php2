@@ -24,9 +24,9 @@ $router->filter('auth',function(){
 $router->group(['prefix'=>'admin'],function($router){
     $router->group(['prefix'=>'/categories'],function($router){
         $router->get('/list',[CategoriesController::class,'listCategories']);
-        $router->get('/add',[CategoriesController::class,'formAddCategories']);
+        $router->get('/form-add',[CategoriesController::class,'formAddCategories']);
         $router->post('/add',[CategoriesController::class,'addCategories']);
-        $router->get('/update',[CategoriesController::class,'editCategories']);
+        $router->get('/form-update',[CategoriesController::class,'editCategories']);
         $router->post('/update',[CategoriesController::class,'updateCategories']);
         $router->get('/delete',[CategoriesController::class,'deleteCategories']);
     });
