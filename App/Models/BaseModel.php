@@ -33,7 +33,7 @@ class BaseModel {
             if (!$result = $this->execute($options))
                 return false;
         }
-        return $result->fetchAll();
+        return $result->fetchAll(PDO::FETCH_OBJ);
     }
     function loadRow($option = array())
     {
@@ -44,7 +44,7 @@ class BaseModel {
             if (!$result = $this->execute($option))
                 return false;
         }
-        return $result->fetch(PDO::FETCH_ASSOC);
+        return $result->fetch(PDO::FETCH_OBJ);
     }
 }
 

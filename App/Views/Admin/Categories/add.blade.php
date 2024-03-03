@@ -12,6 +12,15 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create new categories</h1>
                             </div>
+                            @if (isset($_SESSION["errors"])&&isset($_GET["msg"]))
+                                {{123141}}
+                                <!-- @foreach($_SESSION["errors"] as $errors)
+                                    <span style="color:red;">{{$errors}}</span><br>
+                                @endforeach -->
+                            @endif
+                            @if (isset($_SESSION["success"])&&isset($_GET["msg"]))
+                                    <span style="color:green;">{{$_SESSION["success"]}}</span><br>
+                            @endif
                             <form action="{{route('admin/categories/add')}}" class="user" id="form" method="post" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -48,14 +57,5 @@
             </div>
         </div>
     </div>
-    <script>
-        const name = document.querySelector('input[name="name"]').value;
-        const thumbnail = document.querySelector('input[name="thumbnail"]').value;
-        const description = document.querySelector('input[name="description"]').value;
-        const status = document.querySelector('input[name="status"]').value;
-        if(name.trim()==""||thumbnail.trim()==""||description.trim()==""||status.trim()==""){
-            alert('Cannot be blank !');
-        }
-    </script>
 </body>
 @endsection
