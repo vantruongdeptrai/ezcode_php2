@@ -37,7 +37,7 @@ class CategoriesController extends BaseController
             //     $errors[] = "Thumbnail cannot be blank!";
             // }
             if (count($errors) > 0) {
-                redirect('errors', $errors, 'admin/categories/list');
+                redirect('errors', $errors, 'admin/categories/form-add');
             } else {
                 $name = $_POST["name"];
                 $description = $_POST["description"];
@@ -51,39 +51,35 @@ class CategoriesController extends BaseController
                     echo "Upload fail";
                 }
                 $result = $this->categoriesModel->insertCategories(null, $name, $description, $thumbnail, $status);
-                var_dump($result);
-                die;
-                // if ($result) {
-                //     redirect('success', 'Create successfully !', 'admin/categories/form-add');
-                // }else{
-                //     echo " nonono";
-                // }
+                if ($result) {
+                    redirect('success', 'Create successfully !', 'admin/categories/form-add');
+                }
             }
         }
     }
-    // public function editCategories($id)
-    // {
-    //     $one_category = $this->categoriesModel->getCategorieById($id);
-    //     $this->render('Categories.update', compact('one_category'));
-    // }
-    // public function updateCategories($id)
-    // {
-    //     if (isset($_POST["update"])) {
-    //         $id = $_POST["id"];
-    //         $name = $_POST["name"];
-    //         $description = $_POST["description"];
-    //         $thumbnail = $_POST["thumbnail"];
-    //         $status = $_POST["status"];
-    //         $this->categoriesModel->updateCategories($id, $name, $description, $thumbnail, $status);
-    //     }
-    //     $categories = $this->categoriesModel->getAllCategories();
-    //     $this->render('Categories.list', compact('categories'));
-    // }
-    // public function deleteCategories($id)
-    // {
-    //     $status = $_POST["status"];
-    //     $this->categoriesModel->deleteCategories($id, $status);
-    //     $categories = $this->categoriesModel->getAllCategories();
-    //     $this->render('Categories.list', compact('categories'));
-    // }
+    public function editCategories($id)
+    {
+        $category = $this->categoriesModel->getCategorieById($id);
+        $this->render('Categories.update', compact('category'));
+    }
+    public function updateCategories($id)
+    {
+        if (isset($_POST["update"])) {
+            $id = $_POST["id"];
+            $name = $_POST["name"];
+            $description = $_POST["description"];
+            $thumbnail = $_POST["thumbnail"];
+            $status = $_POST["status"];
+            $this->categoriesModel->updateCategories($id, $name, $description, $thumbnail, $status);
+        }
+        $categories = $this->categoriesModel->getAllCategories();
+        $this->render('Categories.list', compact('categories'));
+    }
+    public function deleteCategories($id)
+    {
+        $result = $this->categoriesModel->deleteCategories($id);
+        if($result){ 
+            header("location:".BASE_URL."/admin/categories/list");
+        }
+    }
 }

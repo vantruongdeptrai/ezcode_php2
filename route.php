@@ -1,4 +1,5 @@
 <?php
+
 use App\Controllers\CategoriesController;
 use Phroute\Phroute\RouteCollector;
 
@@ -26,9 +27,9 @@ $router->group(['prefix'=>'admin'],function($router){
         $router->get('/list',[CategoriesController::class,'listCategories']);
         $router->get('/form-add',[CategoriesController::class,'formAddCategories']);
         $router->post('/add',[CategoriesController::class,'addCategories']);
-        $router->get('/form-update',[CategoriesController::class,'editCategories']);
-        $router->post('/update',[CategoriesController::class,'updateCategories']);
-        $router->get('/delete',[CategoriesController::class,'deleteCategories']);
+        $router->get('/form-update/{id}',[CategoriesController::class,'editCategories']);
+        $router->post('/update-categories/{id}',[CategoriesController::class,'updateCategories']);
+        $router->get('/delete-categories/{id}',[CategoriesController::class,'deleteCategories']);
     });
 });
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());

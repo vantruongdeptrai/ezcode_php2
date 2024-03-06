@@ -31,11 +31,11 @@ class Categories extends BaseModel
         $this->setQuery($sql);
         return $this->execute([$name,$description,$thumbnail,$status,$id]);
     }
-    public function deleteCategories($id, $status)
+    public function deleteCategories($id)
     {
-        $sql = "UPDATE $this->table SET status=? WHERE id=?";
+        $sql = "UPDATE $this->table SET status='inactive' WHERE id=?";
         $this->setQuery($sql);
-        return $this->execute([$status,$id]);
+        return $this->execute([$id]);
     }
 }
 

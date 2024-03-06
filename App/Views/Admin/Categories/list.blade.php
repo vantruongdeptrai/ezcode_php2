@@ -21,13 +21,13 @@
                     <tbody>
                         @foreach($categories as $cate)
                         <tr>
-                            <td>{{$cate['id']}}</td>
-                            <td>{{$cate['name']}}</td>
-                            <td><img src="{{$cate['thumbnail']}}" alt="" height='80' width='80'></td>
-                            <td>{{$cate['status']}}</td>
+                            <td>{{$cate->id}}</td>
+                            <td>{{$cate->name}}</td>
+                            <td><img src="../../Public/images/{{$cate->thumbnail}}" alt="" height='80' width='80'></td>
+                            <td>{{$cate->status}}</td>
                             <td>
-                                <a href="" class="btn btn-danger btn-circle "><i class="fas fa-trash"></i></a>
-                                <a href="" class="btn btn-danger btn-circle "><i class="fas fa-fw fa-wrench"></i></a>
+                                <a href="{{route('admin/categories/delete-categories/'.$cate->id)}}" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger btn-circle "><i class="fas fa-trash"></i></a>
+                                <a href="{{route('admin/categories/form-update/'.$cate->id)}}" class="btn btn-danger btn-circle"><i class="fas fa-fw fa-wrench"></i></a>
                             </td>
                         </tr>
                         @endforeach
