@@ -6,15 +6,6 @@ use Phroute\Phroute\RouteCollector;
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
 $router = new RouteCollector();
 
-/*request method: 
-- get: kéo dữ liệu từ sv về
-- post: đẩy dữ liệu lên sv (thêm mới/update)
-- delete: xoá dữ liệu
-- any: request nào cũng dùng được 
-
-$route: '/', '/products'
-$handler: hàm xử lý 
-*/
 $router->filter('auth',function(){
     if(!isset($_SESSION['user'])){
         header("location:/login");

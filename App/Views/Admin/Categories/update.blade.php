@@ -44,8 +44,8 @@
                                         <!-- <input type="text" class="form-control form-control-user" placeholder="Status"
                                             name="status" value="{{$category->status}}"> -->
                                         <select name="status" id="" class="form-control">
-                                            <option value="1">Active</option>
-                                            <option value="1">Inactive</option>
+                                            <option value="active" {{$category->status=='active'?'selected':''}}>Active</option>
+                                            <option value="inactive" {{$category->status=='inactive'?'selected':''}}>Inactive</option>
                                         </select>
                                     </div>
                                 </div>
