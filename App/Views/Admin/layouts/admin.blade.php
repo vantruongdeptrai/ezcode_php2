@@ -64,18 +64,16 @@
             <!-- Nav Item - Utilities Collapse Menu -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                <a class="nav-link collapsed" href="{{route('admin/courses/list')}}" data-toggle="collapse" data-target="#collapseUtilities"
                     aria-expanded="true" aria-controls="collapseUtilities">
-                    <span>Sản phẩm</span>
+                    <span>Courses</span>
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                     data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Quản lí sản phẩm</h6>
-                        <a class="collapse-item" href="index.php?act=list_sp">List sản phẩm</a>
-                        <a class="collapse-item" href="index.php?act=add_sp">Thêm sản phẩm</a>
-                        <a class="collapse-item" href="index.php?act=them_ctsp">Thêm thuộc tính</a>
-
+                        <h6 class="collapse-header">Courses</h6>
+                        <a class="collapse-item" href="{{route('admin/courses/list')}}">List Courses</a>
+                        <a class="collapse-item" href="{{route('admin/courses/form-add')}}">Create Courses</a>
                     </div>
                 </div>
             </li>
@@ -179,19 +177,17 @@
                                 aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                                    Về trang chủ bán hàng
+                                    Go Home
                                 </a>
                             </div>
                         </li>
                     </ul>
-
                 </nav>
-                <!-- End of Topbar -->
                 
-                <!-- Begin Page Content -->
-                <!-- End of Main Content -->
             </div>
+            <div>
             @yield('content')
+            </div>
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">

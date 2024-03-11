@@ -27,9 +27,15 @@ class Categories extends BaseModel
     }
     public function updateCategories($id, $name, $description, $thumbnail, $status)
     {
-        $sql = "UPDATE $this->table SET name=? , description = ?, thumbnail=?, status=? WHERE id = ?" ;
-        $this->setQuery($sql);
-        return $this->execute([$name,$description,$thumbnail,$status,$id]);
+        if($thumbnail==""){
+            $sql = "UPDATE $this->table SET name=? , description = ?, status=? WHERE id = ?" ;
+            $this->setQuery($sql);
+            return $this->execute([$name,$description,$status,$id]);
+        }else{
+            $sql = "UPDATE $this->table SET name=? , description = ?, thumbnail=?, status=? WHERE id = ?" ;
+            $this->setQuery($sql);
+            return $this->execute([$name,$description,$thumbnail,$status,$id]);
+        }
     }
     public function deleteCategories($id)
     {

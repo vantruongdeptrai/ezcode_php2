@@ -1,26 +1,25 @@
 <?php
 namespace App\Controllers;
 
-use App\Models\Categories;
-use App\Controllers\BaseController;
+use App\Models\Courses;
 
-class CategoriesController extends BaseController
+class CoursesController extends BaseController
 {
-    protected $categoriesModel;
+    protected $coursesModel;
     public function __construct()
     {
-        $this->categoriesModel = new Categories();
+        $this->coursesModel = new Courses();
     }
     public function listCategories()
     {
-        $categories = $this->categoriesModel->getAllCategories();
-        return $this->render('Categories.list', compact('categories'));
+        $courses = $this->coursesModel->getAllCourses();
+        return $this->render('Courses.list', compact('courses'));
     }
-    public function formAddCategories()
+    public function formAddCourses()
     {
-        return $this->render('Categories.add');
+        return $this->render('Courses.add');
     }
-    public function addCategories()
+    public function addCourses()
     {
         if (isset($_POST["add"])) {
             $errors = [];
@@ -29,6 +28,11 @@ class CategoriesController extends BaseController
             }
             if (empty($_POST["description"])) {
                 $errors[] = "Description cannot be blank!";
+            }
+            if (empty($_POST["price"])) {
+                $errors[] = "Price cannot be blank!";
+            } else if ($_POST["price"] < 0 || !ctype_digit($_POST["price"])) {
+                $errors[] = "Price must be digit or greater zero !";
             }
             if (empty($_POST["status"])) {
                 $errors[] = "Status cannot be blank!";
@@ -39,25 +43,27 @@ class CategoriesController extends BaseController
                 $errors[] = "Thumbnail cannot be blank!";
             }
             if (count($errors) > 0) {
-                redirect('errors', $errors, 'admin/categories/form-add');
+                redirect('errors', $errors, 'admin/courses/form-add');
             } else {
                 $name = $_POST["name"];
                 $description = $_POST["description"];
+                $price = $_POST["price"];
                 $status = $_POST["status"];
+                $total_register = 0;
                 $thumbnail = $_FILES["thumbnail"]["name"];
-                $result = $this->categoriesModel->insertCategories(null, $name, $description, $thumbnail, $status);
+                $result = $this->coursesModel->insertCourses(null, $name, $description, $price, $status, $thumbnail,$total_register);
                 if ($result) {
-                    redirect('success', 'Create successfully !', 'admin/categories/form-add');
+                    redirect('success', 'Create successfully !', 'admin/courses/form-add');
                 }
             }
         }
     }
-    public function editCategories($id)
+    public function editCourse($id)
     {
-        $category = $this->categoriesModel->getCategorieById($id);
-        $this->render('Categories.update', compact('category'));
+        $courses = $this->coursesModel->getCourseById($id);
+        $this->render('Courses.update', compact('courses'));
     }
-    public function updateCategories($id)
+    public function updateCourses($id)
     {
         if (isset($_POST["update"])) {
             $errors = [];
@@ -67,15 +73,20 @@ class CategoriesController extends BaseController
             if (empty($_POST["description"])) {
                 $errors[] = "Description cannot be blank!";
             }
+            if (empty($_POST["price"])) {
+                $errors[] = "Price cannot be blank!";
+            } else if ($_POST["price"] < 0 || !ctype_digit($_POST["price"])) {
+                $errors[] = "Price must be digit or greater zero !";
+            }
             if (empty($_POST["status"])) {
                 $errors[] = "Status cannot be blank!";
             }
-
             if (count($errors) > 0) {
-                redirect('errors', $errors, 'admin/categories/form-update/' . $id);
+                redirect('errors', $errors, 'admin/courses/form-update/' . $id);
             } else {
                 $name = $_POST["name"];
                 $description = $_POST["description"];
+                $price= $_POST["price"];
                 $status = $_POST["status"];
                 $thumbnail = $_FILES["thumbnail"]["name"];
                 $target_dir = 'Public/images/';
@@ -83,18 +94,20 @@ class CategoriesController extends BaseController
                 if (!move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) {
                     //$errors[] = "Thumbnail cannot be blank!";
                 }
-                $result = $this->categoriesModel->updateCategories($id, $name, $description, $thumbnail, $status);
+                $result = $this->coursesModel->updateCourses($id, $name, $description,$price, $status, $thumbnail);
                 if ($result) {
-                    redirect('success', 'Update successfully !', 'admin/categories/form-update/' . $id);
+                    redirect('success', 'Update successfully !', 'admin/courses/form-update/' . $id);
                 }
             }
         }
     }
-    public function deleteCategories($id)
+    public function deleteCourses($id)
     {
-        $result = $this->categoriesModel->deleteCategories($id);
+        $result = $this->coursesModel->deleteCourses($id);
         if ($result) {
-            header("location:" . BASE_URL . "/admin/categories/list");
+            header("location:" . BASE_URL . "/admin/courses/list");
         }
     }
 }
+
+
