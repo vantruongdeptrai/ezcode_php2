@@ -18,7 +18,7 @@
         rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="{{route('')}}/Public/css/sb-admin-2.min.css" rel="stylesheet">
-
+    
 </head>
 
 <body id="page-top">
@@ -27,39 +27,36 @@
     <div id="wrapper">
         <!-- Sidebar -->
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="./index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('')}}">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
                 <div class="sidebar-brand-text mx-3">Trang quản trị<sup></sup></div>
             </a>
-
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="./index.php">
+                <a class="nav-link" href="{{route('')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Trang chủ</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
+            
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link collapsed" href="{{route('admin/categories/list')}}" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <span>Categories</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Categories</h6>
-                        <a class="collapse-item" href="{{BASE_URL.'admin/categories/list'}}">List Categories</a>
-                        <a class="collapse-item" href="{{BASE_URL.'admin/categories/form-add'}}">Create Categories</a>
+                        <a class="collapse-item" href="{{route('admin/categories/list')}}">List Categories</a>
+                        <a class="collapse-item" href="{{route('admin/categories/form-add')}}">Create Categories</a>
                     </div>
                 </div>
             </li>
@@ -190,10 +187,11 @@
 
                 </nav>
                 <!-- End of Topbar -->
-                @yield('content')
+                
                 <!-- Begin Page Content -->
                 <!-- End of Main Content -->
             </div>
+            @yield('content')
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
@@ -236,21 +234,21 @@
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../../Public/vendor/jquery/jquery.min.js"></script>
-    <script src="../../Public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="{{route('')}}/Public/vendor/jquery/jquery.min.js"></script>
+    <script src="{{route('')}}/Public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../../Public/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="{{route('')}}/Public/vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../../Public/js/sb-admin-2.min.js"></script>
+    <script src="{{route('')}}/Public/js/sb-admin-2.min.js"></script>
 
     <!-- Page level plugins -->
-    <script src="../../Public/vendor/chart.js/Chart.min.js"></script>
+    <script src="{{route('')}}/Public/vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="../../Public/js/demo/chart-area-demo.js"></script>
-    <script src="../../Public/js/demo/chart-pie-demo.js"></script>
+    <script src="{{route('')}}/Public/js/demo/chart-area-demo.js"></script>
+    <script src="{{route('')}}/Public/js/demo/chart-pie-demo.js"></script>
 
 </body>
 

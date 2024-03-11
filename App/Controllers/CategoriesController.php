@@ -47,6 +47,7 @@ class CategoriesController extends BaseController
                 $target_file = $target_dir . basename($thumbnail);
                 if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) {
                     echo "Upload success";
+                    return false;
                 } else {
                     echo "Upload fail";
                 }
@@ -65,20 +66,39 @@ class CategoriesController extends BaseController
     public function updateCategories($id)
     {
         if (isset($_POST["update"])) {
-            $id = $_POST["id"];
-            $name = $_POST["name"];
-            $description = $_POST["description"];
-            $thumbnail = $_POST["thumbnail"];
-            $status = $_POST["status"];
-            $this->categoriesModel->updateCategories($id, $name, $description, $thumbnail, $status);
+            $errors = [];
+            if (empty($_POST["name"])) {
+                $errors[] = "Name cannot be blank!";
+            }
+            if (empty($_POST["description"])) {
+                $errors[] = "Description cannot be blank!";
+            }
+            if (empty($_POST["status"])) {
+                $errors[] = "Status cannot be blank!";
+            }
+            $target_dir = 'Public/images/';
+            $target_file = $target_dir . basename($_FILES["thumbnail"]["name"]);
+            if (!move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $target_file)) {
+                $errors[] = "Thumbnail cannot be blank!";
+            }
+            if (count($errors) > 0) {
+                redirect('errors', $errors,'admin/categories/form-update/'.$id);
+            } else {
+                $name = $_POST["name"];
+                $description = $_POST["description"];
+                $status = $_POST["status"];
+                $thumbnail = $_FILES["thumbnail"]["name"];
+                $result = $this->categoriesModel->updateCategories($id, $name, $description, $thumbnail, $status);
+                if ($result) {
+                    redirect('success', 'Update successfully !', 'admin/categories/form-update/'.$id);
+                }
+            }
         }
-        $categories = $this->categoriesModel->getAllCategories();
-        $this->render('Categories.list', compact('categories'));
     }
     public function deleteCategories($id)
     {
         $result = $this->categoriesModel->deleteCategories($id);
-        if($result){ 
+        if($result){
             header("location:".BASE_URL."/admin/categories/list");
         }
     }

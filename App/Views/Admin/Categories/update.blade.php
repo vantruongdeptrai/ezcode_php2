@@ -41,11 +41,9 @@
                                 </div>                    
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <!-- <input type="text" class="form-control form-control-user" placeholder="Status"
-                                            name="status" value="{{$category->status}}"> -->
                                         <select name="status" id="" class="form-control">
-                                            <option value="active" {{$category->status=='active'?'selected':''}}>Active</option>
-                                            <option value="inactive" {{$category->status=='inactive'?'selected':''}}>Inactive</option>
+                                            <option value="active">Active</option>
+                                            <option value="inactive">Inactive</option>
                                         </select>
                                     </div>
                                 </div>
