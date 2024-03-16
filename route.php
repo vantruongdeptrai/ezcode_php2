@@ -2,6 +2,7 @@
 
 use App\Controllers\CategoriesController;
 use App\Controllers\CoursesController;
+use App\Controllers\HomeController;
 use Phroute\Phroute\RouteCollector;
 
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
@@ -33,6 +34,9 @@ $router->group(['prefix'=>'admin'],function($router){
         $router->post('/update-courses/{id}',[CoursesController::class,'updateCourses']);
         $router->get('/delete-courses/{id}',[CoursesController::class,'deleteCourses']);
     });
+});
+$router->group(['prefix'=>'user'],function($router){
+    $router->get('/home',[HomeController::class,'home']);
 });
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $url);

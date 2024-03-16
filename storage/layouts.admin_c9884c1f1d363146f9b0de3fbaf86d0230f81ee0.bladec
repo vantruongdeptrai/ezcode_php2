@@ -183,11 +183,11 @@
  </li>
  </ul>
  </nav>
- 
- </div>
  <div>
  <?php echo $this->yieldContent('content'); ?>
  </div>
+ </div>
+ 
  <!-- Footer -->
  <footer class="sticky-footer bg-white">
  <div class="container my-auto">

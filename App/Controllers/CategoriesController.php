@@ -22,15 +22,15 @@ class CategoriesController extends BaseController
     }
     public function addCategories()
     {
-        if (isset($_POST["add"])) {
+        if (isset ($_POST["add"])) {
             $errors = [];
-            if (empty($_POST["name"])) {
+            if (empty ($_POST["name"])) {
                 $errors[] = "Name cannot be blank!";
             }
-            if (empty($_POST["description"])) {
+            if (empty ($_POST["description"])) {
                 $errors[] = "Description cannot be blank!";
             }
-            if (empty($_POST["status"])) {
+            if (empty ($_POST["status"])) {
                 $errors[] = "Status cannot be blank!";
             }
             $target_dir = 'Public/images/';
@@ -59,15 +59,15 @@ class CategoriesController extends BaseController
     }
     public function updateCategories($id)
     {
-        if (isset($_POST["update"])) {
+        if (isset ($_POST["update"])) {
             $errors = [];
-            if (empty($_POST["name"])) {
+            if (empty ($_POST["name"])) {
                 $errors[] = "Name cannot be blank!";
             }
-            if (empty($_POST["description"])) {
+            if (empty ($_POST["description"])) {
                 $errors[] = "Description cannot be blank!";
             }
-            if (empty($_POST["status"])) {
+            if (empty ($_POST["status"])) {
                 $errors[] = "Status cannot be blank!";
             }
 

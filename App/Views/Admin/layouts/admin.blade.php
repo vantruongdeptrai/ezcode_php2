@@ -183,11 +183,11 @@
                         </li>
                     </ul>
                 </nav>
-                
+                <div>
+                @yield('content')
             </div>
-            <div>
-            @yield('content')
             </div>
+            
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
