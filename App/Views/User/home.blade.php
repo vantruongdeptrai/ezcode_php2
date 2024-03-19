@@ -8,33 +8,30 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Topic Listing Bootstrap 5 Template</title>
+    <title>Ezcode</title>
 
     <!-- CSS FILES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Open+Sans&display=swap"
         rel="stylesheet">
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
-
-    <link href="css/templatemo-topic-listing.css" rel="stylesheet">
-
+    <link href="{{route('')}}/Public/css-view/bootstrap.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> -->
+    <link href="{{route('')}}/Public/css-view/bootstrap-icons.css" rel="stylesheet">
+    
+    <link href="{{route('')}}/Public/css-view/templatemo-topic-listing.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
 <body id="top">
-
     <main>
-
         <nav class="navbar navbar-expand-lg">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
                     <i class="bi-back"></i>
-                    <span>Topic</span>
+                    <span>Ezcode</span>
                 </a>
 
                 <div class="d-lg-none ms-auto me-4">
@@ -134,7 +131,7 @@
                                     <span class="badge bg-design rounded-pill ms-auto">14</span>
                                 </div>
 
-                                <img src="images/topics/undraw_Remote_design_team_re_urdx.png"
+                                <img src="{{route('')}}Public/images-view/topics/undraw_Remote_design_team_re_urdx.png"
                                     class="custom-block-image img-fluid" alt="">
                             </a>
                         </div>
@@ -143,7 +140,7 @@
                     <div class="col-lg-6 col-12">
                         <div class="custom-block custom-block-overlay">
                             <div class="d-flex flex-column h-100">
-                                <img src="images/businesswoman-using-tablet-analysis.jpg"
+                                <img src="{{route('')}}Public/images-view/businesswoman-using-tablet-analysis.jpg"
                                     class="custom-block-image img-fluid" alt="">
 
                                 <div class="custom-block-overlay-text d-flex">
@@ -258,7 +255,7 @@
                                                     <span class="badge bg-design rounded-pill ms-auto">14</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Remote_design_team_re_urdx.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_Remote_design_team_re_urdx.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -277,7 +274,7 @@
                                                     <span class="badge bg-design rounded-pill ms-auto">75</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Redesign_feedback_re_jvm0.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_Redesign_feedback_re_jvm0.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -296,7 +293,7 @@
                                                     <span class="badge bg-design rounded-pill ms-auto">100</span>
                                                 </div>
 
-                                                <img src="images/topics/colleagues-working-cozy-office-medium-shot.png"
+                                                <img src="{{route('')}}Public/images-view/topics/colleagues-working-cozy-office-medium-shot.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -320,7 +317,7 @@
                                                     <span class="badge bg-advertising rounded-pill ms-auto">30</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_online_ad_re_ol62.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_online_ad_re_ol62.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -339,7 +336,7 @@
                                                     <span class="badge bg-advertising rounded-pill ms-auto">65</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Group_video_re_btu7.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_Group_video_re_btu7.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -358,7 +355,7 @@
                                                     <span class="badge bg-advertising rounded-pill ms-auto">50</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_viral_tweet_gndb.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_viral_tweet_gndb.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -382,7 +379,7 @@
                                                     <span class="badge bg-finance rounded-pill ms-auto">30</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Finance_re_gnv2.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_Finance_re_gnv2.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -391,7 +388,7 @@
                                     <div class="col-lg-6 col-md-6 col-12">
                                         <div class="custom-block custom-block-overlay">
                                             <div class="d-flex flex-column h-100">
-                                                <img src="images/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg"
+                                                <img src="{{route('')}}Public/images-view/businesswoman-using-tablet-analysis-graph-company-finance-strategy-statistics-success-concept-planning-future-office-room.jpg"
                                                     class="custom-block-image img-fluid" alt="">
 
                                                 <div class="custom-block-overlay-text d-flex">
@@ -452,7 +449,7 @@
                                                     <span class="badge bg-music rounded-pill ms-auto">45</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Compose_music_re_wpiw.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_Compose_music_re_wpiw.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -471,7 +468,7 @@
                                                     <span class="badge bg-music rounded-pill ms-auto">45</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_happy_music_g6wc.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_happy_music_g6wc.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -490,7 +487,7 @@
                                                     <span class="badge bg-music rounded-pill ms-auto">20</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Podcast_audience_re_4i5q.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_Podcast_audience_re_4i5q.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -514,7 +511,7 @@
                                                     <span class="badge bg-education rounded-pill ms-auto">80</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Graduation_re_gthn.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_Graduation_re_gthn.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -533,7 +530,7 @@
                                                     <span class="badge bg-education rounded-pill ms-auto">75</span>
                                                 </div>
 
-                                                <img src="images/topics/undraw_Educator_re_ju47.png"
+                                                <img src="{{route('')}}Public/images-view/topics/undraw_Educator_re_ju47.png"
                                                     class="custom-block-image img-fluid" alt="">
                                             </a>
                                         </div>
@@ -626,7 +623,7 @@
                     <div class="clearfix"></div>
 
                     <div class="col-lg-5 col-12">
-                        <img src="images/faq_graphic.jpg" class="img-fluid" alt="FAQs">
+                        <img src="{{route('')}}Public/images-view/faq_graphic.jpg" class="img-fluid" alt="FAQs">
                     </div>
 
                     <div class="col-lg-6 col-12 m-auto">
@@ -767,7 +764,7 @@
                 <div class="col-lg-3 col-12 mb-4 pb-2">
                     <a class="navbar-brand mb-2" href="index.html">
                         <i class="bi-back"></i>
-                        <span>Topic</span>
+                        <span>Ezcode</span>
                     </a>
                 </div>
 
@@ -836,11 +833,13 @@
 
 
     <!-- JAVASCRIPT FILES -->
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/jquery.sticky.js"></script>
-    <script src="js/click-scroll.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <script src="{{route('')}}/Public/js-view/jquery.min.js"></script>
+    <script src="{{route('')}}/Public/js-view/bootstrap.bundle.min.js"></script>
+    <script src="{{route('')}}/Public/js-view/jquery.sticky.js"></script>
+    <script src="{{route('')}}/Public/js-view/click-scroll.js"></script>
+    <script src="{{route('')}}/Public/js-view/custom.js"></script>
 
 </body>
 

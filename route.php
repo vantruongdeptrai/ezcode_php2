@@ -15,6 +15,7 @@ $router->filter('auth',function(){
     }
 });
 
+$router->get('/homeAdmin',[HomeController::class,'homeAdmin']);
 $router->group(['prefix'=>'admin'],function($router){
     $router->group(['prefix'=>'/categories'],function($router){
         $router->get('/list',[CategoriesController::class,'listCategories']);
@@ -24,8 +25,6 @@ $router->group(['prefix'=>'admin'],function($router){
         $router->post('/update-categories/{id}',[CategoriesController::class,'updateCategories']);
         $router->get('/delete-categories/{id}',[CategoriesController::class,'deleteCategories']);
     });
-});
-$router->group(['prefix'=>'admin'],function($router){
     $router->group(['prefix'=>'/courses'],function($router){
         $router->get('/list',[CoursesController::class,'listCategories']);
         $router->get('/form-add',[CoursesController::class,'formAddCourses']);
@@ -35,6 +34,7 @@ $router->group(['prefix'=>'admin'],function($router){
         $router->get('/delete-courses/{id}',[CoursesController::class,'deleteCourses']);
     });
 });
+
 $router->group(['prefix'=>'user'],function($router){
     $router->get('/home',[HomeController::class,'home']);
 });
