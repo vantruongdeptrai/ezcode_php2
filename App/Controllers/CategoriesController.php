@@ -13,8 +13,9 @@ class CategoriesController extends BaseController
     }
     public function listCategories()
     {
+        $r = 'Categories.list';
         $categories = $this->categoriesModel->getAllCategories();
-        return $this->render('Categories.list', compact('categories'));
+        return $this->render($r,compact('categories'));        
     }
     public function formAddCategories()
     {

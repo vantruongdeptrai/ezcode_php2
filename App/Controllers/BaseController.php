@@ -8,10 +8,16 @@ class BaseController
 {
     protected function render($views,$data=[])
     {
-        $viewsDir = './App/Views/';
+        $viewsDir = './App/Views/Admin';
         $storageDir = './storage';
         $blade = new BladeOne($viewsDir, $storageDir, BladeOne::MODE_DEBUG); // MODE_DEBUG allows to pinpoint troubles.
         echo $blade->run($views,$data); // it calls /views/hello.blade.php
     }
-    
+    protected function renderView($views,$data=[])
+    {
+        $viewsDir = './App/Views/User';
+        $storageDir = './storage';
+        $blade = new BladeOne($viewsDir, $storageDir, BladeOne::MODE_DEBUG); // MODE_DEBUG allows to pinpoint troubles.
+        echo $blade->run($views,$data);
+    }
 }

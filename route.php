@@ -15,8 +15,9 @@ $router->filter('auth',function(){
     }
 });
 
-$router->get('/homeAdmin',[HomeController::class,'homeAdmin']);
+
 $router->group(['prefix'=>'admin'],function($router){
+    //$router->get('/homeAdmin',[HomeController::class,'homeAdmin']);
     $router->group(['prefix'=>'/categories'],function($router){
         $router->get('/list',[CategoriesController::class,'listCategories']);
         $router->get('/form-add',[CategoriesController::class,'formAddCategories']);
