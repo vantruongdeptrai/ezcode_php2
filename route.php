@@ -38,6 +38,10 @@ $router->group(['prefix'=>'admin'],function($router){
 
 $router->group(['prefix'=>'user'],function($router){
     $router->get('/home',[HomeController::class,'home']);
+    $router->get('/register',[HomeController::class,'register']);
+    $router->post('/post-register',[HomeController::class,'registerPost']);
+    $router->get('/login',[HomeController::class,'login']);
+    $router->post('/post-login',[HomeController::class,'loginPost']);
 });
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $url);

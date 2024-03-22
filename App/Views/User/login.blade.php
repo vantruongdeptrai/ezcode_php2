@@ -89,7 +89,8 @@
             </div>
         </nav>
 
-        
+        <!-- Register -->
+
         <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
             <div class="container">
                 <div class="row">
@@ -99,7 +100,7 @@
 
                         <h6 class="text-center">platform for creatives around the world</h6>
 
-                        <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                        <form method="post" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                             <div class="input-group input-group-lg">
                                 <span class="input-group-text bi-search" id="basic-addon1">
 
@@ -116,48 +117,32 @@
                 </div>
             </div>
         </section>
-
-        <!-- Register -->
-
         <div class="container mt-5 bg-education text-light rounded">
-            <div class="row mb-5 justify-content-center ">
+            <div class="row mb-5 justify-content-center">
                 <div class="col-lg-5 mx-auto order-1" data-aos="fade-up" data-aos-delay="200">
-                <h3 class="mt-5">Register</h3>
-                @if (isset($_SESSION["errors"])&&isset($_GET["msg"]))
-                    @foreach($_SESSION["errors"] as $errors)
-                        <span style="color:red;">{{$errors}}</span><br>
-                    @endforeach
-                @endif
-                @if (isset($_SESSION["success"])&&isset($_GET["msg"]))
-                    <span style="color:yellow;">{{$_SESSION["success"]}}</span><br>
-                @endif
-                <form action="{{route('user/post-register')}}" class="form-box mt-5" method="post">
-                    <div class="row">
+                    <h3 class="mt-5">Login</h3>
+                    <form action="#" class="form-box mt-5">
+                        <div class="row">
                         <div class="col-12 mb-3">
-                            <input type="text" class="form-control" placeholder="Full name" name="fullname">
+                            <input type="text" class="form-control" placeholder="Email">
                         </div>
                         <div class="col-12 mb-3">
-                            <input type="text" class="form-control" placeholder="Email" name="email">
-                        </div>
-                        <div class="col-12 mb-3">
-                            <input type="password" class="form-control" placeholder="Password" name="password">
-                        </div>
-                        <div class="col-12 mb-3">
-                            <input type="password" class="form-control" placeholder="Re-type Password" name="repassword">
+                            <input type="password" class="form-control" placeholder="Password">
                         </div>
 
                         <div class="col-12 mb-3">
                             <label class="control control--checkbox">
-                            <span class="caption">Accept our <a href="#" class="text-warning">terms and conditions</a></span>
+                            <span class="caption">Remember me</span>
                             <input type="checkbox" checked="checked" />
                             <div class="control__indicator"></div>
                             </label>
                         </div>
                         <div class="col-12 mb-5 mt-3">
-                            <input type="submit" name="submit" value="Submit" class="btn bg-success text-light">
+                            <input type="submit" value="Send Message" class="btn bg-success text-light">
                         </div>
-                    </div>
-                </form>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -248,3 +233,7 @@
 </body>
 
 </html>
+
+<div class="container">
+    
+</div>
