@@ -17,5 +17,15 @@ class Users extends BaseModel
         $this->setQuery($sql);
         return $this->execute([$id,$username,$fullname,$email,$password,$dob,$avatar,$gender,$tel,$address,$role]);
     }
+    public function checkAccount($email,$password){
+        $sql = "SELECT * FROM $this->table WHERE email=? AND password=?";
+        $this->setQuery($sql);
+        return $this->loadRow([$email,$password]);
+    }
+    public function checkEmail($email){
+        $sql = "SELECT * FROM $this->table WHERE email=?";
+        $this->setQuery($sql);
+        return $this->loadRow([$email]);
+    }
 }
 

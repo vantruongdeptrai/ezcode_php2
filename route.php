@@ -42,6 +42,7 @@ $router->group(['prefix'=>'user'],function($router){
     $router->post('/post-register',[HomeController::class,'registerPost']);
     $router->get('/login',[HomeController::class,'login']);
     $router->post('/post-login',[HomeController::class,'loginPost']);
+    $router->get('/list-course',[HomeController::class,'listCourse']);
 });
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $url);

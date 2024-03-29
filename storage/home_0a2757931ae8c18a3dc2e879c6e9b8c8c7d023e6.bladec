@@ -120,7 +120,7 @@
  </div>
  </section>
 
- 
+ <?php echo $this->yieldContent('content'); ?>
  <section class="featured-section">
  <div class="container">
  <div class="row justify-content-center">
