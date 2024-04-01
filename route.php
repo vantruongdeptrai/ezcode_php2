@@ -1,8 +1,10 @@
 <?php
 
 use App\Controllers\CategoriesController;
+use App\Controllers\CommentsController;
 use App\Controllers\CoursesController;
 use App\Controllers\HomeController;
+use App\Controllers\RattingController;
 use Phroute\Phroute\RouteCollector;
 
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
@@ -27,7 +29,7 @@ $router->group(['prefix'=>'admin'],function($router){
         $router->get('/delete-categories/{id}',[CategoriesController::class,'deleteCategories']);
     });
     $router->group(['prefix'=>'/courses'],function($router){
-        $router->get('/list',[CoursesController::class,'listCategories']);
+        $router->get('/list',[CoursesController::class,'listCourses']);
         $router->get('/form-add',[CoursesController::class,'formAddCourses']);
         $router->post('/add',[CoursesController::class,'addCourses']);
         $router->get('/form-courses/{id}',[CoursesController::class,'editCourse']);
@@ -41,9 +43,16 @@ $router->group(['prefix'=>'user'],function($router){
     $router->get('/register',[HomeController::class,'register']);
     $router->post('/post-register',[HomeController::class,'registerPost']);
     $router->get('/login',[HomeController::class,'login']);
+    $router->get('/logout',[HomeController::class,'logout']);
     $router->post('/post-login',[HomeController::class,'loginPost']);
     $router->get('/list-course',[HomeController::class,'listCourse']);
+    $router->post('/filter',[HomeController::class,'filter']);
+    $router->get('/course-detail/{id}',[HomeController::class,'courseDetail']);
+    $router->post('/ratting/{id}',[RattingController::class,'ratting']);
+    $router->post('/comment/{id}',[CommentsController::class,'comment']);
 });
+
+
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $url);
 

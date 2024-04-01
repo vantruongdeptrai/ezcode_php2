@@ -10,7 +10,7 @@
                     <div class="col-lg-7">
                         <div class="p-5">
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Create new categories</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Create new course</h1>
                             </div>
                             @if (isset($_SESSION["errors"])&&isset($_GET["msg"]))
                                 @foreach($_SESSION["errors"] as $errors)
@@ -24,7 +24,7 @@
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input type="text" class="form-control form-control-user"
-                                            placeholder="Name Category" name="name">
+                                            placeholder="Name Course" name="name">
                                     </div>
                                 </div>
                                 <div class="form-group row">

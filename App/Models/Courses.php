@@ -43,5 +43,27 @@ class Courses extends BaseModel
         $this->setQuery($sql);
         return $this->execute([$id]);
     }
+    public function filterByCategory($id_category){
+        $sql = "SELECT * FROM $this->table WHERE id_category=?";
+            $this->setQuery($sql);
+            return $this->loadAllRows([$id_category]);
+    }
+    public function filterByPrice($price){
+        if($price<20000){
+            $sql = "SELECT * FROM $this->table WHERE price<20000";
+            $this->setQuery($sql);
+            return $this->loadAllRows([]);
+        }
+        if($price>20000 && $price<50000){
+            $sql = "SELECT * FROM $this->table WHERE price>20000 AND price<50000";
+            $this->setQuery($sql);
+            return $this->loadAllRows([]);
+        }
+        if($price>90000){
+            $sql = "SELECT * FROM $this->table WHERE price>90000";
+            $this->setQuery($sql);
+            return $this->loadAllRows([]);
+        }
+    }
 }
 

@@ -3,7 +3,9 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\Categories;
+use App\Models\Comments;
 use App\Models\Courses;
+use App\Models\Ratting;
 use App\Models\Users;
 
 class HomeController extends BaseController
@@ -11,11 +13,15 @@ class HomeController extends BaseController
     protected $userModel;
     protected $categoriesModel;
     protected $courseModel; 
+    protected $rattingModel;
+    protected $commentModel;
     public function __construct()
     {
         $this->userModel = new Users();
         $this->categoriesModel = new Categories();
         $this->courseModel = new Courses();
+        $this->rattingModel = new Ratting();
+        $this->commentModel = new Comments();
     }
     public function home()
     {
@@ -112,10 +118,50 @@ class HomeController extends BaseController
             }
         }
     }
+    public function logout(){
+        session_unset();
+        $dir = "layouts.home";
+        $cate = $this->categoriesModel->getAllCategories();
+        $course = $this->courseModel->getAllCourses();
+        return $this->renderView('all-feature', compact('cate','course'));
+    }
     public function listCourse()
     {
         $dir = "list-course";
         $course = $this->courseModel->getAllCourses();
+        return $this->renderView($dir, compact('course'));
+    }
+    public function filter(){
+        if(isset($_POST["submit"])){
+            $id_category = $_POST["id_category"];
+            $price = $_POST["price"];
+            if(empty($id_category)){
+                $course = $this->courseModel->filterByPrice($price);
+                $dir = "list-course";
+                return $this->renderView($dir, compact('course'));
+            }
+            if(empty($id_category)){
+                $course = $this->courseModel->filterByCategory($id_category);
+                $dir = "list-course";
+                return $this->renderView($dir, compact('course'));
+            }
+            if(empty($id_category)&&empty($id_category)){
+                $dir = "list-course";
+                $course = $this->courseModel->getAllCourses();
+                return $this->renderView($dir, compact('course'));
+            }
+            if(!empty($id_category)&&!empty($id_category)){
+                $filterByPrice = $this->courseModel->filterByPrice($price);
+                $filterByCategory = $this->courseModel->filterByCategory($id_category);
+                //$dir = "list-course";
+                //return $this->renderView($dir, compact('course'));
+            }
+        }
+        
+    }
+    public function courseDetail($id){
+        $dir = "course-detail";
+        $course = $this->courseModel->getCourseById($id);
         return $this->renderView($dir, compact('course'));
     }
 }

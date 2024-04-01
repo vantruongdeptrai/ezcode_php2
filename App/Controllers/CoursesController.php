@@ -10,7 +10,7 @@ class CoursesController extends BaseController
     {
         $this->coursesModel = new Courses();
     }
-    public function listCategories()
+    public function listCourses()
     {
         $courses = $this->coursesModel->getAllCourses();
         return $this->render('Courses.list', compact('courses'));
@@ -82,7 +82,7 @@ class CoursesController extends BaseController
                 $errors[] = "Status cannot be blank!";
             }
             if (count($errors) > 0) {
-                redirect('errors', $errors, 'admin/courses/form-update/' . $id);
+                redirect('errors', $errors, 'admin/courses/form-courses/' . $id);
             } else {
                 $name = $_POST["name"];
                 $description = $_POST["description"];
@@ -96,7 +96,7 @@ class CoursesController extends BaseController
                 }
                 $result = $this->coursesModel->updateCourses($id, $name, $description,$price, $status, $thumbnail);
                 if ($result) {
-                    redirect('success', 'Update successfully !', 'admin/courses/form-update/' . $id);
+                    redirect('success', 'Update successfully !', 'admin/courses/form-courses/' . $id);
                 }
             }
         }
