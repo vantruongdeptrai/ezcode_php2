@@ -10,7 +10,7 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$course->name}}</h5>
                                 <p class="card-text">{{$course->description}}</p>
-                                <a href="{{route('user/course-detail/' . $course->id)}}" class="btn btn-primary">View detail</a>
+                                <a href="{{route('user/course-detail/' . $course->id)}}" class="btn btn-primary">Join now</a>
                         </div>
                 </div>
             </div>

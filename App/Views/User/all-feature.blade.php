@@ -18,7 +18,7 @@
                                     <span class="badge bg-design rounded-pill ms-auto">14</span>
                                 </div>
 
-                                <img src="{{route('')}}Public/images-view/topics/undraw_Remote_design_team_re_urdx.png"
+                                <img src="{{route('')}}Public/images/topics/undraw_Remote_design_team_re_urdx.png"
                                     class="custom-block-image img-fluid" alt="">
                             </a>
                         </div>
@@ -116,7 +116,7 @@
                                                                 </div>
                                                                 <span class="badge bg-design rounded-pill ms-auto">{{$courseItem->total_register}}</span>
                                                             </div>
-                                                            <img src="{{route('')}}Public/images-view/topics/undraw_Remote_design_team_re_urdx.png" class="custom-block-image img-fluid" alt="">
+                                                            <img src="{{route('')}}Public/images/{{$courseItem->thumbnail}}" class="custom-block-image img-fluid" alt="">
                                                         </a>
                                                     </div>
                                                 </div>

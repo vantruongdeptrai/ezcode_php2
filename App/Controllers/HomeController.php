@@ -132,36 +132,25 @@ class HomeController extends BaseController
         return $this->renderView($dir, compact('course'));
     }
     public function filter(){
-        if(isset($_POST["submit"])){
-            $id_category = $_POST["id_category"];
-            $price = $_POST["price"];
-            if(empty($id_category)){
-                $course = $this->courseModel->filterByPrice($price);
-                $dir = "list-course";
-                return $this->renderView($dir, compact('course'));
-            }
-            if(empty($id_category)){
-                $course = $this->courseModel->filterByCategory($id_category);
-                $dir = "list-course";
-                return $this->renderView($dir, compact('course'));
-            }
-            if(empty($id_category)&&empty($id_category)){
-                $dir = "list-course";
-                $course = $this->courseModel->getAllCourses();
-                return $this->renderView($dir, compact('course'));
-            }
-            if(!empty($id_category)&&!empty($id_category)){
-                $filterByPrice = $this->courseModel->filterByPrice($price);
-                $filterByCategory = $this->courseModel->filterByCategory($id_category);
-                //$dir = "list-course";
-                //return $this->renderView($dir, compact('course'));
-            }
+        if(isset($_POST['filter'])){
+            $id_category = $_POST['category'];
+            $price = $_POST['price'];
+            $course = $this->courseModel->filter($price,$id_category);
+            $dir = "list-course";
+            return $this->renderView($dir,compact('course'));
         }
-        
     }
     public function courseDetail($id){
         $dir = "course-detail";
         $course = $this->courseModel->getCourseById($id);
         return $this->renderView($dir, compact('course'));
+    }
+    public function search(){
+        if(isset($_POST['keyword'])){
+            $keyword = $_POST['keyword'];
+            $course = $this->courseModel->search($keyword);
+            $dir = "list-course";
+            return $this->renderView($dir,compact('course'));
+        }
     }
 }

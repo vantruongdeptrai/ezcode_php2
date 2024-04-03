@@ -73,8 +73,8 @@
                                 <li><a class="dropdown-item" href="{{route('user/login')}}">Sign In</a></li>
                                 @if(isset($_SESSION['user']))
                                 <li><a class="dropdown-item" href="{{route('user/logout')}}">Log out</a></li>
-                                @endif
                                 <li><a class="dropdown-item" href="#">My Account</a></li>
+                                @endif
                             </ul>
                         </div>
                     </ul>
@@ -95,7 +95,7 @@
 
                         <h6 class="text-center">platform for creatives around the world</h6>
 
-                        <form method="get" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
+                        <form action="{{route('user/search')}}" method="post" class="custom-form mt-4 pt-2 mb-lg-0 mb-5" role="search">
                             <div class="input-group input-group-lg">
                                 <span class="input-group-text bi-search" id="basic-addon1">
 

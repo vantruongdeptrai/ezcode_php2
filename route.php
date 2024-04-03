@@ -48,6 +48,7 @@ $router->group(['prefix'=>'user'],function($router){
     $router->get('/list-course',[HomeController::class,'listCourse']);
     $router->post('/filter',[HomeController::class,'filter']);
     $router->get('/course-detail/{id}',[HomeController::class,'courseDetail']);
+    $router->post('/search',[HomeController::class,'search']);
     $router->post('/ratting/{id}',[RattingController::class,'ratting']);
     $router->post('/comment/{id}',[CommentsController::class,'comment']);
 });

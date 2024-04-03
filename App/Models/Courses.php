@@ -43,27 +43,61 @@ class Courses extends BaseModel
         $this->setQuery($sql);
         return $this->execute([$id]);
     }
-    public function filterByCategory($id_category){
-        $sql = "SELECT * FROM $this->table WHERE id_category=?";
+    
+    public function filter($price,$id_category)
+    {
+        
+        if($price=="" && $id_category==""){
+            $sql = "SELECT * FROM $this->table";
+            $this->setQuery($sql);
+            return $this->loadAllRows([]);
+        }
+        if($price==""){
+            $sql = "SELECT * FROM $this->table WHERE id_category = ?";
             $this->setQuery($sql);
             return $this->loadAllRows([$id_category]);
+        }
+        else{
+            if($price==1){
+                if($id_category!=""){
+                    $sql = "SELECT * FROM $this->table WHERE price>0 AND price<=10000 AND id_category=?";
+                    $this->setQuery($sql);
+                    return $this->loadAllRows([$id_category]);
+                }else{
+                    $sql = "SELECT * FROM $this->table WHERE price>0 AND price<=10000";
+                    $this->setQuery($sql);
+                    return $this->loadAllRows([]);
+                }
+            }
+            if($price==2){
+                if($id_category!=""){
+                    $sql = "SELECT * FROM $this->table WHERE price>10000 AND price<=50000 AND id_category=?";
+                    $this->setQuery($sql);
+                    return $this->loadAllRows([$id_category]);
+                }else{
+                    $sql = "SELECT * FROM $this->table WHERE price>10000 AND price<=50000";
+                    $this->setQuery($sql);
+                    return $this->loadAllRows([]);
+                }
+            }
+            if($price==3){
+                if($id_category!=""){
+                    $sql = "SELECT * FROM $this->table WHERE price>50000 AND price<=100000 AND id_category=?";
+                    $this->setQuery($sql);
+                    return $this->loadAllRows([$id_category]);
+                }else{
+                    $sql = "SELECT * FROM $this->table WHERE price>50000 AND price<=100000";
+                    $this->setQuery($sql);
+                    return $this->loadAllRows([]);
+                }
+            }
+        }
     }
-    public function filterByPrice($price){
-        if($price<20000){
-            $sql = "SELECT * FROM $this->table WHERE price<20000";
-            $this->setQuery($sql);
-            return $this->loadAllRows([]);
-        }
-        if($price>20000 && $price<50000){
-            $sql = "SELECT * FROM $this->table WHERE price>20000 AND price<50000";
-            $this->setQuery($sql);
-            return $this->loadAllRows([]);
-        }
-        if($price>90000){
-            $sql = "SELECT * FROM $this->table WHERE price>90000";
-            $this->setQuery($sql);
-            return $this->loadAllRows([]);
-        }
+    public function search($keyword){
+        $keyword = '%'.$keyword.'%';
+        $sql = "SELECT * FROM $this->table WHERE name LIKE ?";
+        $this->setQuery($sql);
+        return $this->loadAllRows([$keyword]);
     }
 }
 

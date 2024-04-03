@@ -1,6 +1,5 @@
 <?php
 namespace App\Controllers;
-use App\Models\Categories;
 use App\Models\Ratting;
 class RattingController extends BaseController
 {
