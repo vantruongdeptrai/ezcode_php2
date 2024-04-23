@@ -30,7 +30,11 @@ class CommentsController extends BaseController
             }
         }
     }
-    
+    public function listComment(){
+        $comment = $this->commentModel->getComment();
+        $dir = "Comments.list";
+        return $this->render($dir,compact('comment')); 
+    }
 
 }
 

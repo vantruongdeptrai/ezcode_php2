@@ -153,4 +153,5 @@ class HomeController extends BaseController
             return $this->renderView($dir,compact('course'));
         }
     }
+    
 }

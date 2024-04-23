@@ -108,7 +108,7 @@
                                                 <div class="col-lg-4 col-md-6 col-12 mb-4 mb-lg-0">
                                                     <div class="custom-block bg-white shadow-lg">
                                                         <!-- route detail -->
-                                                        <a href="topics-detail.html">
+                                                        <a href="{{route('user/course-detail/'.$courseItem->id)}}">
                                                             <div class="d-flex">
                                                                 <div>
                                                                     <h5 class="mb-2">{{$courseItem->name}}</h5>

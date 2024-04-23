@@ -5,6 +5,8 @@ use App\Controllers\CommentsController;
 use App\Controllers\CoursesController;
 use App\Controllers\HomeController;
 use App\Controllers\RattingController;
+use App\Controllers\UserCourseController;
+use App\Controllers\UsersController;
 use Phroute\Phroute\RouteCollector;
 
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
@@ -19,7 +21,6 @@ $router->filter('auth',function(){
 
 
 $router->group(['prefix'=>'admin'],function($router){
-    //$router->get('/homeAdmin',[HomeController::class,'homeAdmin']);
     $router->group(['prefix'=>'/categories'],function($router){
         $router->get('/list',[CategoriesController::class,'listCategories']);
         $router->get('/form-add',[CategoriesController::class,'formAddCategories']);
@@ -36,6 +37,15 @@ $router->group(['prefix'=>'admin'],function($router){
         $router->post('/update-courses/{id}',[CoursesController::class,'updateCourses']);
         $router->get('/delete-courses/{id}',[CoursesController::class,'deleteCourses']);
     });
+    $router->group(['prefix'=>'/user'],function($router){
+        $router->get('/list',[UsersController::class,'listUser']);
+    });
+    $router->group(['prefix'=>'/comment'],function($router){
+        $router->get('/list',[CommentsController::class,'listComment']);
+    });
+    $router->group(['prefix'=>'/ratting'],function($router){
+        $router->get('/list',[RattingController::class,'listRatting']);
+    });
 });
 
 $router->group(['prefix'=>'user'],function($router){
@@ -51,6 +61,9 @@ $router->group(['prefix'=>'user'],function($router){
     $router->post('/search',[HomeController::class,'search']);
     $router->post('/ratting/{id}',[RattingController::class,'ratting']);
     $router->post('/comment/{id}',[CommentsController::class,'comment']);
+    $router->get('/my-account',[UserCourseController::class,'myAccount']);
+    //$router->get('/my-account',[UserCourseController::class,'myCourse']);
+    $router->post('/join',[UserCourseController::class,'joinCourse']);
 });
 
 

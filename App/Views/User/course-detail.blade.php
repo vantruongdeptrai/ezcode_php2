@@ -10,10 +10,20 @@
                         <div class="card-body">
                             <h5 class="card-title">{{$course->name}}</h5>
                                 <p class="card-text">{{$course->description}}</p>
-                                <a href="{{route('user/course-detail/' . $course->id)}}" class="btn btn-primary">Join now</a>
+                                @if(isset($_SESSION['user']))
+                                <form action="{{route('user/join')}}" method="post">
+                                    <input type="hidden" name="id_course" value="{{$course->id}}">
+                                    <input type="submit" name="join" class="btn btn-primary" value="Join now"></input>
+                                </form>
+                                @endif
+                                @if(!isset($_SESSION['user']))
+                                    <p style="color:red">Please login to Join course !</p>
+                                @endif
+                                
                         </div>
                 </div>
             </div>
+            <div></div>
         </div>
         <div class="row mt-5">
             @if(isset($_SESSION['user']))
@@ -34,9 +44,9 @@
                         <span style="color:red;">{{$errors}}</span><br>
                     @endforeach
                 @endif
-                    @if (isset($_SESSION["success"])&&isset($_GET["msg"]))
-                        <span style="color:green;">{{$_SESSION["success"]}}</span><br>
-                    @endif
+                @if (isset($_SESSION["success"])&&isset($_GET["msg"]))
+                    <span style="color:green;">{{$_SESSION["success"]}}</span><br>
+                @endif
             </form>
             @endif
             @if(!isset($_SESSION['user']))

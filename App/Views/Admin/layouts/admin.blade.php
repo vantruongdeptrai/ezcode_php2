@@ -84,26 +84,26 @@
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                     aria-expanded="true" aria-controls="collapsePages">
 
-                    <span>Tài khoản</span>
+                    <span>Accounts</span>
                 </a>
                 <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Quản lí tài khoản</h6>
-                        <a class="collapse-item" href="index.php?act=list_tk">List tài khoản</a>
+                        <h6 class="collapse-header">Accounts</h6>
+                        <a class="collapse-item" href="{{route('admin/user/list')}}">List</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Comment -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php?act=list_bl">
-                    <span>Bình luận</span></a>
+                <a class="nav-link" href="{{route('admin/comment/list')}}">
+                    <span>Comment</span></a>
             </li>
 
             <!-- Nav Item - Đơn hàng -->
             <li class="nav-item">
-                <a class="nav-link" href="index.php?act=list_donhang">
-                    <span>Quản lí đơn hàng</span></a>
+                <a class="nav-link" href="{{route('admin/ratting/list')}}">
+                    <span>Ratting</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="index.php?act=thongke">

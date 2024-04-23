@@ -15,5 +15,9 @@ class RattingController extends BaseController
             echo $this->ratingModel->insertRatting(null,$rating,$user_id,$course_id);
         }
     }
-    
+    public function listRatting(){
+        $ratting = $this->ratingModel->getRatting();
+        $dir = "Ratting.list";
+        return $this->render($dir,compact('ratting')); 
+    }
 }

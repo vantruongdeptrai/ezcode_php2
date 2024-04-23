@@ -73,7 +73,7 @@
                                 <li><a class="dropdown-item" href="{{route('user/login')}}">Sign In</a></li>
                                 @if(isset($_SESSION['user']))
                                 <li><a class="dropdown-item" href="{{route('user/logout')}}">Log out</a></li>
-                                <li><a class="dropdown-item" href="#">My Account</a></li>
+                                <li><a class="dropdown-item" href="{{route('user/my-account')}}">My Account</a></li>
                                 @endif
                             </ul>
                         </div>

@@ -8,7 +8,9 @@ class Ratting extends BaseModel
     protected $table = 'ratings';
 
     public function getRatting(){
-        $sql = "SELECT * FROM $this->table";
+        $sql = "SELECT ratings.id , ratings.value, users.username , courses.name FROM ratings
+        JOIN users ON ratings.user_id = users.id
+        JOIN courses ON ratings.course_id = courses.id";
         $this->setQuery($sql);
         return $this->loadAllRows([]);
     }

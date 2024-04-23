@@ -8,7 +8,7 @@ class Comments extends BaseModel
     protected $table = 'comment';
 
     public function getComment(){
-        $sql = "SELECT * FROM $this->table";
+        $sql = "SELECT comment.id , content, users.username FROM comment JOIN users ON comment.user_id = users.id";
         $this->setQuery($sql);
         return $this->loadAllRows([]);
     }
