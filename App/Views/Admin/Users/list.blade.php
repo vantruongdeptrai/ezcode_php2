@@ -33,7 +33,7 @@
                             <td>{{$user->tel}}</td>
                             <td>{{$user->address}}</td>
                             <td>{{$user->role}}</td>
-                            <td>..</td>
+                            <td>{{$user->status}}</td>
                         </tr>
                         @endforeach
                     </tbody>

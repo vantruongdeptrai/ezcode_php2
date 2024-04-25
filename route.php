@@ -7,6 +7,8 @@ use App\Controllers\HomeController;
 use App\Controllers\RattingController;
 use App\Controllers\UserCourseController;
 use App\Controllers\UsersController;
+use App\Controllers\ChartController;
+
 use Phroute\Phroute\RouteCollector;
 
 $url = isset($_GET['url']) ? $_GET['url'] : '/';
@@ -46,6 +48,9 @@ $router->group(['prefix'=>'admin'],function($router){
     $router->group(['prefix'=>'/ratting'],function($router){
         $router->get('/list',[RattingController::class,'listRatting']);
     });
+    $router->group(['prefix'=>'/chart'],function($router){
+        $router->get('/list',[ChartController::class,'chart']);
+    });
 });
 
 $router->group(['prefix'=>'user'],function($router){
@@ -62,10 +67,10 @@ $router->group(['prefix'=>'user'],function($router){
     $router->post('/ratting/{id}',[RattingController::class,'ratting']);
     $router->post('/comment/{id}',[CommentsController::class,'comment']);
     $router->get('/my-account',[UserCourseController::class,'myAccount']);
-    //$router->get('/my-account',[UserCourseController::class,'myCourse']);
     $router->post('/join',[UserCourseController::class,'joinCourse']);
+    $router->get('/update-info',[HomeController::class,'updateInfo']);
+    $router->post('/post-info',[HomeController::class,'postInfo']);
 });
-
 
 $dispatcher = new Phroute\Phroute\Dispatcher($router->getData());
 $response = $dispatcher->dispatch($_SERVER['REQUEST_METHOD'], $url);

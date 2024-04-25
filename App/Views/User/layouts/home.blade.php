@@ -74,6 +74,7 @@
                                 @if(isset($_SESSION['user']))
                                 <li><a class="dropdown-item" href="{{route('user/logout')}}">Log out</a></li>
                                 <li><a class="dropdown-item" href="{{route('user/my-account')}}">My Account</a></li>
+                                <li><a class="dropdown-item" href="{{route('user/update-info')}}">Update Information</a></li>
                                 @endif
                             </ul>
                         </div>
